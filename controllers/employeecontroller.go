@@ -4,6 +4,7 @@ import (
 	"ApiGin/dtos"
 	"ApiGin/initializers"
 	"ApiGin/models"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -60,6 +61,7 @@ func CreateEmployee(cgin *gin.Context) {
 		return
 	}
 	employeeAdded := initializers.DB.Create(&employee)
+	fmt.Println(&employeeAdded)
 	err := employeeAdded.Error
 	if err != nil {
 		cgin.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -67,7 +69,7 @@ func CreateEmployee(cgin *gin.Context) {
 		return
 	}
 
-	cgin.JSON(http.StatusCreated, gin.H{"message": "Employee Created Successfully"})
+	cgin.JSON(http.StatusCreated, &employee)
 }
 
 func UpdateEmployee(cgin *gin.Context) {
