@@ -1,0 +1,6 @@
+The reason is Go is a compiled language. What go install does is, 
+it creates a binary from the source code. 
+The binary is independent of the source code and it can be run from any location. 
+Since test.txt is not found in the location from which the binary is run, 
+the program complains that it cannot find the file specified.
+

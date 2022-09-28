@@ -1,0 +1,8 @@
+  Query con joins para la tabla intermedia
+
+SELECT skills.id as skillId, skills.Skill, levels.id as levelId, levels.name as level, employee_skills.experience as experience
+  FROM employees
+  JOIN employee_skills ON employee_skills.employee_id = employees.id
+  JOIN skills ON skills.id = employee_skills.skill_id
+  JOIN levels ON levels.id = employee_skills.level_id
+  where employees.id = 22
