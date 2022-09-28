@@ -1,0 +1,490 @@
+{
+	"info": {
+		"_postman_id": "febe443b-1b2d-45fd-a817-2ac4d19bf9d5",
+		"name": "Golang APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "17846396"
+	},
+	"item": [
+		{
+			"name": "golang API",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "SIGNUP",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"oscar@gmail.com\",\r\n    \"password\": \"123\",\r\n    \"name\": \"Oscar Gonzalez Baute\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4321/auth/signup"
+							},
+							"response": []
+						},
+						{
+							"name": "LOGIN",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"oscar@gmail.com\",\r\n    \"password\": \"123\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4321/auth/login"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4321/employee"
+					},
+					"response": []
+				},
+				{
+					"name": "get an employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4321/api/employee/13"
+					},
+					"response": []
+				},
+				{
+					"name": "post Employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"firstName\": \"Daniel\",\r\n    \"lastName\": \"gonzalez\",\r\n    \"doj\": \"2022-08-01T00:00:00Z\",\r\n    \"email\": \"edrt@gmail.com\",\r\n    \"designation\": \"Senior Developer\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4321/api/employee"
+					},
+					"response": []
+				},
+				{
+					"name": "Put Employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Fabian\",\r\n    \"lastName\": \"Gonzalez\",\r\n    \"doj\": \"2022-07-31T00:00:00-05:00\",\r\n    \"designation\": \":Net Developer\",\r\n    \"email\": \"oscarandres@gmail.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4321/api/employee/21"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:4321/api/employee/14"
+					},
+					"response": []
+				},
+				{
+					"name": "Get skills By Employee ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4321/api/employee/skill/22"
+					},
+					"response": []
+				},
+				{
+					"name": "Get employees by skillId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4321/api/employeesbyskill/3"
+					},
+					"response": []
+				},
+				{
+					"name": "Get employees by leveId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4321/api/employeesbylevel/1"
+					},
+					"response": []
+				},
+				{
+					"name": "post Skill to Employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"employeeID\": 21,\r\n  \"skillID\": 3,\r\n  \"levelRatingId\": 5,\r\n  \"experience\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4321/api/employee/skill"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete skill of Employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:4321/api/employee_skill/8/14"
+					},
+					"response": []
+				},
+				{
+					"name": "Post Skill",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"skill\": \".NET \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4321/api/skill"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Skills",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4321/api/skill"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete skill from catalogue",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:4321/api/skill/3"
+					},
+					"response": []
+				},
+				{
+					"name": "Post Leve-Rating",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Architect\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4321/api/expertise"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Leve-Rating",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Beginne\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4321/api/expertise"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Leve-Rating",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Beginne\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4321/api/expertise/3"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gin FrameWork",
+			"item": [
+				{
+					"name": "HTML RENDER",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4321/ginitem/htmlrender?title=This is my personal title hola &description=This is my personal descriptionjhgdfdf&imageuri=https://media.istockphoto.com/photos/funny-dog-summer-american-staffordshire-inside-an-inflatable-swimming-picture-id1318673904?k=20%26m=1318673904%26s=612x612%26w=0%26h=i86Sr1dIwM8gEZghnB5TglhrbhNz5LX7GLQM2dytR64=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4321",
+							"path": [
+								"ginitem",
+								"htmlrender"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "This is my personal title hola "
+								},
+								{
+									"key": "description",
+									"value": "This is my personal descriptionjhgdfdf"
+								},
+								{
+									"key": "imageuri",
+									"value": "https://media.istockphoto.com/photos/funny-dog-summer-american-staffordshire-inside-an-inflatable-swimming-picture-id1318673904?k=20%26m=1318673904%26s=612x612%26w=0%26h=i86Sr1dIwM8gEZghnB5TglhrbhNz5LX7GLQM2dytR64="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Data from File",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4321/ginitem/datafromfile"
+					},
+					"response": []
+				},
+				{
+					"name": "Render static file .pdf",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4321/ginitem/static/file.pdf"
+					},
+					"response": []
+				},
+				{
+					"name": "Post Form using employee API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "nick",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "joseph",
+									"type": "text"
+								},
+								{
+									"key": "designation",
+									"value": "developer Junior",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "nick@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Key",
+									"value": "Value",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": "http://localhost:4321/ginitem/form_employee"
+					},
+					"response": []
+				},
+				{
+					"name": "Get employees XML response",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4321/ginitem/employeexml"
+					},
+					"response": []
+				},
+				{
+					"name": "REDIRECT INTERNAL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4321/ginitem/internalredirect"
+					},
+					"response": []
+				},
+				{
+					"name": "UPLOAD FILE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/oscar/Downloads/download.jfif"
+								}
+							]
+						},
+						"url": "http://localhost:4321/ginitem/uploadfile"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
