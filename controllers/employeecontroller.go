@@ -51,7 +51,7 @@ func DeleteEmployee(cgin *gin.Context) {
 		return
 	}
 	initializers.DB.Delete(&employee)
-	cgin.JSON(http.StatusOK, gin.H{"message": "Employee Deleted"})
+	cgin.JSON(http.StatusOK, &employee)
 }
 
 func CreateEmployee(cgin *gin.Context) {
