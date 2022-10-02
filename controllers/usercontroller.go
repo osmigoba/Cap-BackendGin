@@ -21,6 +21,7 @@ func SignUp(cgin *gin.Context) {
 		Email    string
 		Password string
 		Name     string
+		IsAdmin  bool
 	}
 
 	if err := cgin.ShouldBindJSON(&body); err != nil {
@@ -37,7 +38,7 @@ func SignUp(cgin *gin.Context) {
 
 	//Create the User
 
-	user := models.User{Email: body.Email, Password: string(hash), Name: body.Name}
+	user := models.User{Email: body.Email, Password: string(hash), Name: body.Name, IsAdmin: body.IsAdmin}
 
 	result := initializers.DB.Create(&user)
 
@@ -55,7 +56,7 @@ func Login(cgin *gin.Context) {
 	var minutes = os.Getenv("EXPIRATION_TIME")
 	min, _ := strconv.ParseInt(minutes, 10, 64)
 	println(min)
-	var expiration time.Duration = 20
+	var expiration time.Duration = 60
 	var body struct {
 		Email    string
 		Password string
@@ -102,6 +103,7 @@ func Login(cgin *gin.Context) {
 	response.Token = tokenString
 	response.Expiration = time.Now().Add(time.Minute * expiration)
 	response.Email = user.Email
+	response.Admin = user.IsAdmin
 	fmt.Println(tokenString, err)
 	cgin.JSON(http.StatusOK, response)
 }

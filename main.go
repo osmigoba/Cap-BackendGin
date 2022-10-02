@@ -142,6 +142,7 @@ func main() {
 	api := router.Group("/api")
 	{
 		api.GET("/employee", middleware.Auth, controllers.GetAllemployees)
+		api.GET("/employeewithskills", middleware.Auth, controllers.GetAllemployeesWithSkills)
 		api.GET("/employee/:employeeId", middleware.Auth, controllers.GetAnEmployee)
 		api.DELETE("/employee/:employeeId", middleware.Auth, controllers.DeleteEmployee)
 		api.POST("/employee", middleware.Auth, controllers.CreateEmployee)

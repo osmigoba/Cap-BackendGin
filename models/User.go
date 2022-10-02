@@ -5,4 +5,5 @@ type User struct {
 	Email    string `json:"email" gorm:"unique;unique_index"`
 	Password string `json:"password"`
 	Name     string `json:"name"`
+	IsAdmin  bool   `json:"isAdmin"`
 }

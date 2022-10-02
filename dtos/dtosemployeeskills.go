@@ -10,6 +10,7 @@ type AddSkillEmployeeDTO struct {
 }
 
 type SkillsByEmployeeDTO struct {
+	Employeeid int64  `json:"employeeId"`
 	Skillid    int64  `json:"skillID" `
 	Skill      string `json:"skill"`
 	Levelid    int64  `json:"levelId"`
@@ -21,6 +22,7 @@ type UserLogin struct {
 	Email      string    `json:"email"`
 	Expiration time.Time `json:"expiration"`
 	Token      string    `json:"token"`
+	Admin      bool      `json:"admin"`
 }
 
 type EmployeeLevel struct {
@@ -34,4 +36,15 @@ type EmployeeLevel struct {
 	Email       string    `json:"email" gorm:"type:varchar(150)"`
 	Skill       string    `json:"skill" gorm:"type:varchar(150)"`
 	Levelname   string    `json:"levelName" gorm:"type:varchar(150)"`
+}
+
+type EmployeeWithSkillsDTO struct {
+	// gorm.Model
+
+	Id          int64     `json:"id" gorm:"primaryKey;autoIncrement:true;constraint:OnDelete:CASCADE;"`
+	FirstName   string    `json:"firstName" gorm:"type:varchar(50)"`
+	LastName    string    `json:"lastName" gorm:"type:varchar(50)"`
+	DOJ         time.Time `json:"doj"`
+	Designation string    `json:"designation" gorm:"type:varchar(50)"`
+	Email       string    `json:"email" gorm:"type:varchar(150)"`
 }

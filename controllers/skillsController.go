@@ -31,7 +31,7 @@ func DeleteSkillemployee(cgin *gin.Context) { //params [{skillId}/{employeeId}]
 		return
 	}
 	log.Println("Employee's skill Deleted")
-	cgin.JSON(http.StatusOK, gin.H{"message": "Employee's skill Deleted"})
+	cgin.JSON(http.StatusOK, &skill_employee)
 }
 
 func GetSkills(cgin *gin.Context) {
@@ -55,7 +55,7 @@ func PostSkill(cgin *gin.Context) {
 		return
 	}
 	log.Println("Skill Added to Catalogue")
-	cgin.JSON(http.StatusCreated, gin.H{"message": "Skill Created Successfully in the catalogue"})
+	cgin.JSON(http.StatusCreated, &skill)
 }
 
 func DeleteSkill(cgin *gin.Context) {
@@ -77,10 +77,10 @@ func DeleteSkill(cgin *gin.Context) {
 		initializers.DB.Where("skill_id = ?", skillid).Delete(&models.EmployeeSkills{})
 		initializers.DB.Delete(&skill)
 		log.Println("Data related Deleted")
-		cgin.JSON(http.StatusOK, gin.H{"message": "Skill Deleted and its data related"})
+		cgin.JSON(http.StatusOK, &skill)
 		return
 	}
 	initializers.DB.Delete(&skill)
 	log.Println("Skill Deleted")
-	cgin.JSON(http.StatusOK, gin.H{"message": "Skill Deleted"})
+	cgin.JSON(http.StatusOK, &skill)
 }

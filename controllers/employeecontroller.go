@@ -17,6 +17,18 @@ func GetAllemployees(cgin *gin.Context) {
 	initializers.DB.Order("id asc").Find(&employees)
 	cgin.JSON(http.StatusOK, employees)
 }
+func GetAllemployeesWithSkills(cgin *gin.Context) {
+
+	var employees []dtos.SkillsByEmployeeDTO
+	// var employees []models.Employee
+	initializers.DB.Table("employees").
+		Select("employees.id as employeeId, skills.id as skillId, skills.skill, levels.id as levelId, levels.name as level, employee_skills.experience as experience").
+		Joins("JOIN employee_skills ON employee_skills.employee_id = employees.id JOIN skills ON skills.id = employee_skills.skill_id JOIN levels ON levels.id = employee_skills.level_id").
+		Order("employeeId asc").
+		Scan(&employees)
+	fmt.Println(&employees)
+	cgin.JSON(http.StatusOK, employees)
+}
 
 func GetAnEmployee(cgin *gin.Context) {
 	id := cgin.Param("employeeId")
@@ -47,7 +59,7 @@ func DeleteEmployee(cgin *gin.Context) {
 		initializers.DB.Where("employee_id = ?", employee.Id).Delete(&models.EmployeeSkills{})
 		initializers.DB.Delete(&employee)
 		log.Println("Data related Deleted")
-		cgin.JSON(http.StatusOK, gin.H{"message": "Employee Deleted and its data related"})
+		cgin.JSON(http.StatusOK, employee)
 		return
 	}
 	initializers.DB.Delete(&employee)
@@ -83,6 +95,7 @@ func UpdateEmployee(cgin *gin.Context) {
 	}
 	//Get the body with the parameters to update
 	if err := cgin.ShouldBindJSON(&employee); err != nil {
+		log.Println(err)
 		cgin.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
@@ -144,8 +157,11 @@ func AddSkillemployee(cgin *gin.Context) {
 		cgin.JSON(http.StatusBadRequest, gin.H{"error": err1.Error()})
 		return
 	}
-
-	cgin.JSON(http.StatusCreated, gin.H{"message": "Skill Created Successfully"})
+	// var responseData dtos.SkillsByEmployeeDTO
+	// responseData.Employeeid = data.EmployeeID
+	// responseData.Experience = data.Experience
+	// responseData.Levelid = data.LevelRating.Id
+	cgin.JSON(http.StatusCreated, dto)
 }
 
 func GetSkillsByEmployeeId(cgin *gin.Context) {
