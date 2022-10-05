@@ -4,10 +4,8 @@ import (
 	"ApiGin/dtos"
 	"ApiGin/initializers"
 	"ApiGin/models"
-	"fmt"
 	"net/http"
 	"os"
-	"strconv"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -53,10 +51,10 @@ func SignUp(cgin *gin.Context) {
 }
 
 func Login(cgin *gin.Context) {
-	var minutes = os.Getenv("EXPIRATION_TIME")
-	min, _ := strconv.ParseInt(minutes, 10, 64)
-	println(min)
-	var expiration time.Duration = 60
+	// var minutes,_ = strconv.ParseInt(os.Getenv("EXPIRATION_TIME"), 2, 64)
+	// min, _ := strconv.ParseInt(minutes, 2, 64)
+
+	var expiration time.Duration = 240
 	var body struct {
 		Email    string
 		Password string
@@ -104,6 +102,5 @@ func Login(cgin *gin.Context) {
 	response.Expiration = time.Now().Add(time.Minute * expiration)
 	response.Email = user.Email
 	response.Admin = user.IsAdmin
-	fmt.Println(tokenString, err)
 	cgin.JSON(http.StatusOK, response)
 }

@@ -1,0 +1,155 @@
+[GIN-debug] GET    /ginitem/htmlrender       --> main.main.func2 (6 handlers)
+[GIN-debug] GET    /ginitem/raw              --> main.main.func3 (6 handlers)
+[GIN-debug] GET    /ginitem/static/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (6 handlers)
+[GIN-debug] HEAD   /ginitem/static/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (6 handlers)
+[GIN-debug] GET    /ginitem/redirect         --> main.main.func4 (6 handlers)
+[GIN-debug] GET    /ginitem/employeexml      --> ApiGin/controllers.GetAllemployeesXML (6 handlers)
+[GIN-debug] GET    /ginitem/internalredirect --> main.main.func5 (6 handlers)
+[GIN-debug] GET    /ginitem/datafromfile     --> main.main.func6 (6 handlers)
+[GIN-debug] POST   /ginitem/form_employee    --> main.main.func7 (6 handlers)
+[GIN-debug] POST   /ginitem/uploadfile       --> main.main.func8 (6 handlers)
+[GIN-debug] GET    /ginitem/someDataFromReader --> main.main.func9 (6 handlers)
+[GIN-debug] POST   /auth/signup              --> ApiGin/controllers.SignUp (6 handlers)
+[GIN-debug] POST   /auth/login               --> ApiGin/controllers.Login (6 handlers)
+[GIN-debug] GET    /api/employee             --> ApiGin/controllers.GetAllemployees (7 handlers)
+[GIN-debug] GET    /api/employeewithskills   --> ApiGin/controllers.GetAllemployeesWithSkills (7 handlers)
+[GIN-debug] GET    /api/employee/:employeeId --> ApiGin/controllers.GetAnEmployee (7 handlers)
+[GIN-debug] DELETE /api/employee/:employeeId --> ApiGin/controllers.DeleteEmployee (7 handlers)
+[GIN-debug] POST   /api/employee             --> ApiGin/controllers.CreateEmployee (7 handlers)
+[GIN-debug] PUT    /api/employee/:employeeId --> ApiGin/controllers.UpdateEmployee (7 handlers)
+[GIN-debug] POST   /api/employee/skill       --> ApiGin/controllers.AddSkillemployee (7 handlers)
+[GIN-debug] GET    /api/employee/skill/:employeeId --> ApiGin/controllers.GetSkillsByEmployeeId (7 handlers)
+[GIN-debug] GET    /api/employeesbyskill/:skillsId --> ApiGin/controllers.GetEmployeesBySkillID (7 handlers)
+[GIN-debug] GET    /api/employeesbylevel/:levelId --> ApiGin/controllers.GetEmployeesByLevelId (7 handlers)
+[GIN-debug] DELETE /api/employee_skill/:skillID/:employeeID --> ApiGin/controllers.DeleteSkillemployee (7 handlers)
+[GIN-debug] GET    /api/skill                --> ApiGin/controllers.GetSkills (7 handlers)
+[GIN-debug] POST   /api/skill                --> ApiGin/controllers.PostSkill (7 handlers)
+[GIN-debug] DELETE /api/skill/:skillId       --> ApiGin/controllers.DeleteSkill (7 handlers)
+[GIN-debug] POST   /api/expertise            --> ApiGin/controllers.PostLevelRating (7 handlers)
+[GIN-debug] GET    /api/expertise            --> ApiGin/controllers.GetAllLevelRating (7 handlers)
+[GIN-debug] DELETE /api/expertise/:levelId   --> ApiGin/controllers.DeleteLevelRating (7 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Environment variable PORT="4321"
+[GIN-debug] Listening and serving HTTP on :4321
+ClientIP: ::1 - [Wed, 05 Oct 2022 12:11:23 -05] Method: POST  StatusCode:401  Path:/api/skill  Latency:0s  PostmanRuntime/7.29.2   
+ClientIP: ::1 - [Wed, 05 Oct 2022 12:11:24 -05] Method: POST  StatusCode:401  Path:/api/skill  Latency:826.6µs  PostmanRuntime/7.29.2   
+ClientIP: ::1 - [Wed, 05 Oct 2022 12:11:24 -05] Method: POST  StatusCode:401  Path:/api/skill  Latency:0s  PostmanRuntime/7.29.2   
+ClientIP: ::1 - [Wed, 05 Oct 2022 12:11:25 -05] Method: POST  StatusCode:401  Path:/api/skill  Latency:589.7µs  PostmanRuntime/7.29.2   
+ClientIP: ::1 - [Wed, 05 Oct 2022 12:11:25 -05] Method: POST  StatusCode:401  Path:/api/skill  Latency:0s  PostmanRuntime/7.29.2   
+ClientIP: ::1 - [Wed, 05 Oct 2022 12:35:01 -05] Method: POST  StatusCode:401  Path:/api/skill  Latency:0s  PostmanRuntime/7.29.2   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:12:52 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.652928s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:12:52 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:11.9679ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:12:53 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:201.5368ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:12:53 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:314.8844ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:12:53 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:397.4399ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:15:05 -05] Method: DELETE  StatusCode:200  Path:/api/employee/44  Latency:16.013ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:21:21 -05] Method: DELETE  StatusCode:200  Path:/api/employee/47  Latency:7.2091ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:28:49 -05] Method: PUT  StatusCode:400  Path:/api/employee/41  Latency:17.1035ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:30:30 -05] Method: PUT  StatusCode:400  Path:/api/employee/41  Latency:799.5µs  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:31:23 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.6365928s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:31:24 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:11.6587ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:31:24 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:10.199ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:31:24 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:19.9888ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:31:24 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:254.4565ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:31:41 -05] Method: PUT  StatusCode:400  Path:/api/employee/41  Latency:8.8455ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:32:33 -05] Method: PUT  StatusCode:400  Path:/api/employee/41  Latency:12.6282ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:32:51 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.6551428s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:32:52 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:1.3192ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:32:52 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:13.7605ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:32:52 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:13.7112ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:32:52 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:10.3185ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:33:16 -05] Method: PUT  StatusCode:200  Path:/api/employee/42  Latency:24.8093ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 15:35:43 -05] Method: PUT  StatusCode:200  Path:/api/employee/41  Latency:6.9835ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:02:15 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.6117756s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:02:16 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:3.2616ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:02:16 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:10.4872ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:02:16 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:2.212ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:02:16 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:155.9202ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:03:29 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.5679071s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:03:30 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:3.3903ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:03:30 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:1.4207ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:03:30 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:1.5438ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:03:30 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:1.718ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:04:04 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.5621393s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:04:04 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:15.7926ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:04:04 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:3.6486ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:04:04 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:5.5077ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:04:05 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:3.1599ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:04:44 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.5419519s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:04:45 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:3.6005ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:04:45 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:9.2324ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:04:45 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:10.33ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:04:45 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:163.3498ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:05:33 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.550979s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:05:33 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:1.0001ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:05:33 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:1.9973ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:05:33 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:0s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:05:34 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:207.0405ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:06:20 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.6374047s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:06:21 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:3.5073ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:06:21 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:2.9807ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:06:21 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:5.9823ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:06:21 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:997.9µs  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:06:41 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.6440961s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:06:42 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:5.1393ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:06:42 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:3.0123ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:06:42 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:5.8285ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:06:42 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:2.7327ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:07:56 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.7725487s  Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:07:57 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:2.9911ms  Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:07:57 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:6.744ms  Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:07:57 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:1.5167ms  Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:07:57 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:6.5021ms  Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:09:35 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.6063293s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:09:36 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:686.7µs  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:09:36 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:1.6454ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:09:36 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:15.2339ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:09:36 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:6.23ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:10:03 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.6242706s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:10:04 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:3.8361ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:10:04 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:3.2915ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:10:04 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:6.3934ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:10:04 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:260.0268ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:13:47 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.5350278s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:13:48 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:1.0827ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:13:48 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:3.709ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:13:48 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:2.909ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:13:48 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:4.3947ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:15:50 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.5730227s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:15:51 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:9.7509ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:15:51 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:5.6234ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:15:51 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:4.0185ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:15:51 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:3.0415ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:16:17 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.5549432s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:16:18 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:1.7792ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:16:18 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:2.575ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:16:18 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:1.4541ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:16:18 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:1.3545ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:16:33 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.5319506s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:16:34 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:2.8144ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:16:34 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:1.0045ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:16:34 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:7.0321ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:16:34 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:1.3278ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:17:17 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.5307854s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:17:18 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:1.68ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:17:18 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:1.2228ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:17:18 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:1.8748ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:17:18 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:3.1022ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:19:00 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.6233888s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:19:01 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:1.4661ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:19:01 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:2.0117ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:19:01 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:2.8484ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:19:01 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:26.1921ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:19:48 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.6124915s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:19:49 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:2.1857ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:19:49 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:3.3296ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:19:49 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:2.5061ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:19:49 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:7.2351ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:20:31 -05] Method: POST  StatusCode:200  Path:/auth/login  Latency:1.5893564s  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:20:32 -05] Method: GET  StatusCode:200  Path:/api/employee  Latency:2.4248ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:20:32 -05] Method: GET  StatusCode:200  Path:/api/expertise  Latency:2.1648ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:20:32 -05] Method: GET  StatusCode:200  Path:/api/skill  Latency:6.2601ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:20:32 -05] Method: GET  StatusCode:200  Path:/api/employeewithskills  Latency:4.7653ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:22:31 -05] Method: DELETE  StatusCode:200  Path:/api/skill/31  Latency:20.6344ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
+ClientIP: ::1 - [Wed, 05 Oct 2022 16:22:45 -05] Method: POST  StatusCode:201  Path:/api/skill  Latency:11.3176ms  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36   
