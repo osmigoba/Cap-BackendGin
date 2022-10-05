@@ -6,6 +6,7 @@ import (
 	"ApiGin/middleware"
 	"ApiGin/models"
 	"fmt"
+	"io"
 
 	"log"
 	"net/http"
@@ -18,8 +19,27 @@ import (
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"github.com/go-playground/validator/v10"
 )
 
+// Booking contains binded and validated data.
+type Booking struct {
+	CheckIn  time.Time `form:"check_in" binding:"required,bookabledate" time_format:"2006-01-02"`
+	CheckOut time.Time `form:"check_out" binding:"required,gtfield=CheckIn,bookabledate" time_format:"2006-01-02"`
+}
+
+var bookableDate validator.Func = func(fl validator.FieldLevel) bool {
+	date, ok := fl.Field().Interface().(time.Time)
+	if ok {
+		today := time.Now()
+		if today.After(date) {
+			return false
+		}
+	}
+	return true
+}
+
+// // VALIDATOR
 func formatAsDate(t time.Time) string {
 	year, month, day := t.Date()
 	log.Println("Esto es lo que hago: ", fmt.Sprintf("%d%02d/%02d", year, month, day))
@@ -38,18 +58,33 @@ func main() {
 		"formatAsDate": formatAsDate,
 	})
 	router.LoadHTMLGlob("./templates/*")
+	//Register CORS
 	router.Use(cors.New(cors.Config{
 		AllowOrigins:  []string{"*"},
 		AllowMethods:  []string{"GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS", "PATCH"},
 		AllowHeaders:  []string{"Accept", "Content-Type", "Content-Length", "Accept-Encoding", "X-CSRF-Token", "Authorization", "Access-Control-Request-Headers", "Access-Control-Request-Method", "Connection", "Host", "Origin", "User-Agent", "Referer", "Cache-Control", "X-header", "X-Requested-With", "Access-Control-Allow-Origin", "Content-Type"},
 		ExposeHeaders: []string{"Content-Length"},
 	}))
-	auth := router.Group("/auth")
-	{
-		auth.POST("/signup", controllers.SignUp)
-		auth.POST("/login", controllers.Login)
-	}
 
+	//Register log with middleware
+	file, _ := os.OpenFile(os.Getenv("LOG_FILE"), os.O_RDWR|os.O_CREATE, 0755)
+	gin.DefaultWriter = io.MultiWriter(file)
+	router.Use(gin.LoggerWithFormatter(func(param gin.LogFormatterParams) string {
+		// your custom format
+		return fmt.Sprintf("ClientIP: %s - [%s] Method: %s  StatusCode:%d  Path:%s  Latency:%s  %s  %s \n",
+			param.ClientIP,
+			param.TimeStamp.Format(time.RFC1123),
+			param.Method,
+			param.StatusCode,
+			param.Path,
+			param.Latency,
+			param.Request.UserAgent(),
+			param.ErrorMessage,
+		)
+	}))
+	router.Use(gin.Recovery())
+
+	// GIN ITEMS ROUTES
 	ginItems := router.Group("/ginitem")
 	{
 
@@ -138,7 +173,34 @@ func main() {
 			c.JSON(http.StatusOK, gin.H{"message": message})
 		})
 
+		ginItems.GET("/someDataFromReader", func(c *gin.Context) {
+			response, err := http.Get("https://www.tutorialspoint.com/go/go_tutorial.pdf")
+			//response, err := http.Get("http://localhost:4321/ginitem/static/file.pdf")
+			if err != nil || response.StatusCode != http.StatusOK {
+				c.Status(http.StatusServiceUnavailable)
+				return
+			}
+
+			reader := response.Body
+			contentLength := response.ContentLength
+			contentType := response.Header.Get("Content-Type")
+			fmt.Println(response.Header)
+			extraHeaders := map[string]string{
+				//"Content-Disposition": `attachment; filename="go_tutorial.pdf"`,
+				"Content-Disposition": `inline; filename="go_tutorial.pdf"`,
+			}
+
+			c.DataFromReader(http.StatusOK, contentLength, contentType, reader, extraHeaders)
+		})
+
 	}
+	//AUTH ROUTES
+	auth := router.Group("/auth")
+	{
+		auth.POST("/signup", controllers.SignUp)
+		auth.POST("/login", controllers.Login)
+	}
+	// API ROUTES
 	api := router.Group("/api")
 	{
 		api.GET("/employee", middleware.Auth, controllers.GetAllemployees)
