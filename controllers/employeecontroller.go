@@ -26,7 +26,7 @@ func GetAllemployeesWithSkills(cgin *gin.Context) {
 		Joins("JOIN employee_skills ON employee_skills.employee_id = employees.id JOIN skills ON skills.id = employee_skills.skill_id JOIN levels ON levels.id = employee_skills.level_id").
 		Order("employeeId asc").
 		Scan(&employees)
-	fmt.Println(&employees)
+	//fmt.Println(&employees)
 	cgin.JSON(http.StatusOK, employees)
 }
 
