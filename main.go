@@ -13,37 +13,33 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"text/template"
 
 	"time"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin/binding"
 	"github.com/go-playground/validator/v10"
 )
 
 // Booking contains binded and validated data.
 type Booking struct {
-	CheckIn  time.Time `form:"check_in" binding:"required,bookabledate" time_format:"2006-01-02"`
-	CheckOut time.Time `form:"check_out" binding:"required,gtfield=CheckIn,bookabledate" time_format:"2006-01-02"`
+	CheckIn  time.Time `json:"check_in" binding:"required,bookabledate"`
+	CheckOut time.Time `json:"check_out" binding:"required,gtfield=CheckIn"`
 }
 
 var bookableDate validator.Func = func(fl validator.FieldLevel) bool {
 	date, ok := fl.Field().Interface().(time.Time)
+
+	today := time.Now()
 	if ok {
-		today := time.Now()
-		if today.After(date) {
+
+		if date.After(today) {
+			fmt.Println("Dentro del IF")
 			return false
 		}
 	}
 	return true
-}
-
-// // VALIDATOR
-func formatAsDate(t time.Time) string {
-	year, month, day := t.Date()
-	log.Println("Esto es lo que hago: ", fmt.Sprintf("%d%02d/%02d", year, month, day))
-	return fmt.Sprintf("%d/%02d/%02d", year, month, day)
 }
 
 func init() {
@@ -54,9 +50,6 @@ func init() {
 func main() {
 	router := gin.Default()
 	router.Delims("{{", "}}")
-	router.SetFuncMap(template.FuncMap{
-		"formatAsDate": formatAsDate,
-	})
 	router.LoadHTMLGlob("./templates/*")
 	//Register CORS
 	router.Use(cors.New(cors.Config{
@@ -65,7 +58,9 @@ func main() {
 		AllowHeaders:  []string{"Accept", "Content-Type", "Content-Length", "Accept-Encoding", "X-CSRF-Token", "Authorization", "Access-Control-Request-Headers", "Access-Control-Request-Method", "Connection", "Host", "Origin", "User-Agent", "Referer", "Cache-Control", "X-header", "X-Requested-With", "Access-Control-Allow-Origin", "Content-Type"},
 		ExposeHeaders: []string{"Content-Length"},
 	}))
-
+	if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
+		v.RegisterValidation("bookabledate", bookableDate)
+	}
 	//Register log with middleware
 	file, _ := os.OpenFile(os.Getenv("LOG_FILE"), os.O_RDWR|os.O_CREATE, 0755)
 	gin.DefaultWriter = io.MultiWriter(file)
@@ -97,11 +92,6 @@ func main() {
 				"title": title,
 				"desc":  descr,
 				"image": imageuri,
-			})
-		})
-		ginItems.GET("/raw", func(c *gin.Context) {
-			c.HTML(http.StatusOK, "raw.tmpl", map[string]interface{}{
-				"now": time.Now(),
 			})
 		})
 
@@ -173,26 +163,6 @@ func main() {
 			c.JSON(http.StatusOK, gin.H{"message": message})
 		})
 
-		ginItems.GET("/someDataFromReader", func(c *gin.Context) {
-			response, err := http.Get("https://www.tutorialspoint.com/go/go_tutorial.pdf")
-			//response, err := http.Get("http://localhost:4321/ginitem/static/file.pdf")
-			if err != nil || response.StatusCode != http.StatusOK {
-				c.Status(http.StatusServiceUnavailable)
-				return
-			}
-
-			reader := response.Body
-			contentLength := response.ContentLength
-			contentType := response.Header.Get("Content-Type")
-			fmt.Println(response.Header)
-			extraHeaders := map[string]string{
-				//"Content-Disposition": `attachment; filename="go_tutorial.pdf"`,
-				"Content-Disposition": `inline; filename="go_tutorial.pdf"`,
-			}
-
-			c.DataFromReader(http.StatusOK, contentLength, contentType, reader, extraHeaders)
-		})
-
 	}
 	//AUTH ROUTES
 	auth := router.Group("/auth")
@@ -203,27 +173,37 @@ func main() {
 	// API ROUTES
 	api := router.Group("/api")
 	{
-		api.GET("/employee", middleware.Auth, controllers.GetAllemployees)
-		api.GET("/employeewithskills", middleware.Auth, controllers.GetAllemployeesWithSkills)
-		api.GET("/employee/:employeeId", middleware.Auth, controllers.GetAnEmployee)
-		api.DELETE("/employee/:employeeId", middleware.Auth, controllers.DeleteEmployee)
-		api.POST("/employee", middleware.Auth, controllers.CreateEmployee)
-		api.PUT("/employee/:employeeId", middleware.Auth, controllers.UpdateEmployee)
-		api.POST("/employee/skill", middleware.Auth, controllers.AddSkillemployee)
-		api.GET("/employee/skill/:employeeId", middleware.Auth, controllers.GetSkillsByEmployeeId)
+		api.GET("/employee", middleware.Auth(false), controllers.GetAllemployees)
+		api.GET("/employeewithskills", middleware.Auth(false), controllers.GetAllemployeesWithSkills)
+		api.GET("/employee/:employeeId", middleware.Auth(false), controllers.GetAnEmployee)
+		api.DELETE("/employee/:employeeId", middleware.Auth(true), controllers.DeleteEmployee)
+		api.POST("/employee", middleware.Auth(true), controllers.CreateEmployee)
+		api.PUT("/employee/:employeeId", middleware.Auth(true), controllers.UpdateEmployee)
+		api.POST("/employee/skill", middleware.Auth(true), controllers.AddSkillemployee)
+		api.GET("/employee/skill/:employeeId", middleware.Auth(false), controllers.GetSkillsByEmployeeId)
 
-		api.GET("/employeesbyskill/:skillsId", middleware.Auth, controllers.GetEmployeesBySkillID)
-		api.GET("/employeesbylevel/:levelId", middleware.Auth, controllers.GetEmployeesByLevelId)
-		api.DELETE("/employee_skill/:skillID/:employeeID", middleware.Auth, controllers.DeleteSkillemployee)
+		api.GET("/employeesbyskill/:skillsId", middleware.Auth(false), controllers.GetEmployeesBySkillID)
+		api.GET("/employeesbylevel/:levelId", middleware.Auth(false), controllers.GetEmployeesByLevelId)
+		api.DELETE("/employee_skill/:skillID/:employeeID", middleware.Auth(true), controllers.DeleteSkillemployee)
 
-		api.GET("/skill", middleware.Auth, controllers.GetSkills)
-		api.POST("/skill", middleware.Auth, controllers.PostSkill)
-		api.DELETE("/skill/:skillId", middleware.Auth, controllers.DeleteSkill)
+		api.GET("/skill", middleware.Auth(false), controllers.GetSkills)
+		api.POST("/skill", middleware.Auth(true), controllers.PostSkill)
+		api.DELETE("/skill/:skillId", middleware.Auth(true), controllers.DeleteSkill)
 
-		api.POST("/expertise", middleware.Auth, controllers.PostLevelRating)
-		api.GET("/expertise", middleware.Auth, controllers.GetAllLevelRating)
-		api.DELETE("expertise/:levelId", middleware.Auth, controllers.DeleteLevelRating)
+		api.POST("/expertise", middleware.Auth(true), controllers.PostLevelRating)
+		api.GET("/expertise", middleware.Auth(false), controllers.GetAllLevelRating)
+		api.DELETE("expertise/:levelId", middleware.Auth(true), controllers.DeleteLevelRating)
 	}
-
+	router.GET("/bookable", getBookable)
 	router.Run()
+
+}
+
+func getBookable(c *gin.Context) {
+	var b Booking
+	if err := c.ShouldBindJSON(&b); err == nil {
+		c.JSON(http.StatusOK, gin.H{"message": "Booking dates are valid!"})
+	} else {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+	}
 }

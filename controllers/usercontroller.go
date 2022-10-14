@@ -86,6 +86,7 @@ func Login(cgin *gin.Context) {
 		"exp":   time.Now().Add(time.Minute * expiration).Unix(),
 		"email": user.Email,
 		"name":  user.Name,
+		"admin": user.IsAdmin,
 	})
 
 	// Sign and get the complete encoded token as a string using the secret
